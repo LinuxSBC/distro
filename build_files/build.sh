@@ -14,6 +14,7 @@ sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://down
 
 dnf5 -y copr enable alternateved/keyd
 dnf5 -y copr enable yuezk/globalprotect-openconnect
+dnf5 -y copr enable linuxsbc/fx-autoconfig
 
 # this installs a package from fedora repos
 dnf5 install -y \
@@ -25,6 +26,7 @@ dnf5 install -y \
     gnome-shell-extension-forge gnome-shell-extension-pop-shell gnome-shell-extension-system-monitor \
     keyd \
     freerdp \
+    fx-autoconfig \
     globalprotect-openconnect
 # Use a COPR Example:
 #
