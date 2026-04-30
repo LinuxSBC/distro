@@ -17,7 +17,7 @@ dnf5 -y copr enable yuezk/globalprotect-openconnect
 dnf5 -y copr enable linuxsbc/fx-autoconfig
 
 # this installs a package from fedora repos
-dnf5 install -y \
+dnf5 install -y --allowerasing \
     1password 1password-cli \
     bat fd-find gh tealdeer zoxide \
     neovim nodejs-bash-language-server shellcheck \
