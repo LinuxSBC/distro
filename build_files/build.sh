@@ -10,7 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 rpm --import https://downloads.1password.com/linux/keys/1password.asc
-sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=\"https://downloads.1password.com/linux/keys/1password.asc\"" > /etc/yum.repos.d/1password.repo'
+echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=\"https://downloads.1password.com/linux/keys/1password.asc\"" > /etc/yum.repos.d/1password.repo
 
 dnf5 -y copr enable alternateved/keyd
 dnf5 -y copr enable yuezk/globalprotect-openconnect
@@ -18,8 +18,7 @@ dnf5 -y copr enable linuxsbc/fx-autoconfig
 
 # this installs a package from fedora repos
 dnf5 install -y --allowerasing \
-    1password 1password-cli \
-    bat fd-find gh tealdeer zoxide \
+    zsh fuse-libs fuse bat fd-find gh tealdeer zoxide \
     neovim nodejs-bash-language-server shellcheck \
     cmake gtk4-devel json-glib-devel libevdev-devel libevdev-utils libgtop2-devel libinput-devel libinput-utils meson python3-tkinter rpmdevtools \
     firefox \
@@ -28,6 +27,7 @@ dnf5 install -y --allowerasing \
     freerdp \
     fx-autoconfig \
     globalprotect-openconnect
+    # 1password 1password-cli \
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
