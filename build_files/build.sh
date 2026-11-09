@@ -12,15 +12,23 @@ set -ouex pipefail
 rpm --import https://downloads.1password.com/linux/keys/1password.asc
 echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=\"https://downloads.1password.com/linux/keys/1password.asc\"" > /etc/yum.repos.d/1password.repo
 
+# Terra repo
+curl -fsSL https://raw.githubusercontent.com/terrapkg/packages/f$(rpm --eval '%{fedora}')/anda/terra/release/terra.repo | tee /etc/yum.repos.d/terra.repo
+curl -fsSL https://raw.githubusercontent.com/terrapkg/packages/f$(rpm --eval '%{fedora}')/anda/terra/release/terra-extras.repo | tee /etc/yum.repos.d/terra-extras.repo
+dnf5 install -y terra-release terra-gpg-keys
+# Edit /etc/yum/repos.d/{terra,terra-extras}.repo and set enabled=1 for both
+# sed -i 's/enabled=0/enabled=1/g' /etc/yum.repos.d/terra.repo
+# sed -i 's/enabled=0/enabled=1/g' /etc/yum.repos.d/terra-extras.repo
+
 dnf5 -y copr enable alternateved/keyd
 dnf5 -y copr enable yuezk/globalprotect-openconnect
-dnf5 -y copr enable linuxsbc/fx-autoconfig
+# dnf5 -y copr enable linuxsbc/fx-autoconfig
 
 # this installs a package from fedora repos
 dnf5 install -y --allowerasing \
     zsh fuse-libs fuse bat fd-find gh tealdeer zoxide \
     neovim nodejs-bash-language-server shellcheck \
-    cmake gtk4-devel json-glib-devel libevdev-devel libevdev-utils libgtop2-devel libinput-devel libinput-utils meson python3-tkinter rpmdevtools \
+    cmake gtk4-devel json-glib-devel libevdev-devel libevdev-utils libgtop2-devel libinput-devel libinput-utils meson python3-tkinter python3-devel rpmdevtools \
     firefox \
     gnome-shell-extension-forge gnome-shell-extension-pop-shell gnome-shell-extension-system-monitor \
     keyd \
