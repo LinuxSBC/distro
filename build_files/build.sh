@@ -26,7 +26,7 @@ dnf5 -y copr enable linuxsbc/fx-autoconfig
 
 # this installs a package from fedora repos
 dnf5 install -y --allowerasing \
-    zsh fuse-libs fuse bat fd-find gh tealdeer zoxide \
+    zsh bat fd-find gh zoxide \
     neovim nodejs-bash-language-server shellcheck \
     cmake gtk4-devel json-glib-devel libevdev-devel libevdev-utils libgtop2-devel libinput-devel libinput-utils meson python3-tkinter python3-devel rpmdevtools \
     firefox \
