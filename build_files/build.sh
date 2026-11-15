@@ -23,17 +23,17 @@ dnf5 -y copr enable yuezk/globalprotect-openconnect
 dnf5 install -y --allowerasing \
     zsh bat fd-find gh zoxide \
     neovim nodejs-bash-language-server shellcheck \
-    cmake gtk4-devel json-glib-devel libevdev-devel libevdev-utils libgtop2-devel libinput-devel libinput-utils meson python3-tkinter python3-devel rpmdevtools \
+    cmake gtk4-devel json-glib-devel libevdev-devel libevdev-utils libgtop2-devel libinput-devel libinput-utils meson python3-tkinter python3-devel rpmdevtools flatpak-builder \
     firefox \
-    gnome-shell-extension-gsconnect \
+    gnome-shell-extension-gsconnect gnome-firmware gnome-tweaks nodejs26-npm \
     keyd \
-    freerdp \
+    freerdp docker powertop \
     fx-autoconfig \
     lm_sensors nerd-fonts tailscale ddcutil fira-code-fonts fastfetch \
     xdg-native-messaging-proxy xdg-terminal-exec \
+    1password 1password-cli \
     globalprotect-openconnect
     # gnome-shell-extension-forge gnome-shell-extension-pop-shell \
-    # 1password 1password-cli \
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
