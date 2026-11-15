@@ -12,6 +12,7 @@ curl -fsSL https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo > /et
 dnf5 -y install terra-release
 
 dnf5 -y copr enable alternateved/keyd
+dnf5 -y copr enable rivenirvana/morewaita-icon-theme
 dnf5 -y copr enable yuezk/globalprotect-openconnect
 
 dnf5 install -y --allowerasing \
