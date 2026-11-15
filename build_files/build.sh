@@ -19,7 +19,7 @@ dnf5 install -y --allowerasing \
     neovim nodejs-bash-language-server shellcheck \
     cmake gtk4-devel json-glib-devel libevdev-devel libevdev-utils libgtop2-devel libinput-devel libinput-utils meson python3-tkinter python3-devel rpmdevtools flatpak-builder \
     firefox \
-    gnome-shell-extension-gsconnect gnome-firmware gnome-tweaks nodejs26-npm \
+    gnome-shell-extension-gsconnect gnome-firmware gnome-tweaks nodejs26-npm morewaita-icon-theme \
     keyd \
     freerdp docker powertop \
     fx-autoconfig \
