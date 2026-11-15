@@ -18,7 +18,6 @@ dnf5 -y install terra-release
 
 dnf5 -y copr enable alternateved/keyd
 dnf5 -y copr enable yuezk/globalprotect-openconnect
-dnf5 -y copr enable linuxsbc/fx-autoconfig
 
 # this installs a package from fedora repos
 dnf5 install -y --allowerasing \
