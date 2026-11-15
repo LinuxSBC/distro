@@ -16,6 +16,7 @@ dnf5 -y copr enable rivenirvana/morewaita-icon-theme
 dnf5 -y copr enable yuezk/globalprotect-openconnect
 
 dnf5 install -y --allowerasing \
+    fuse fuse-libs \
     zsh bat fd-find gh zoxide \
     neovim nodejs-bash-language-server shellcheck \
     cmake gtk4-devel json-glib-devel libevdev-devel libevdev-utils libgtop2-devel libinput-devel libinput-utils meson python3-tkinter python3-devel rpmdevtools flatpak-builder \
