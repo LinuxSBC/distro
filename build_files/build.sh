@@ -13,12 +13,8 @@ rpm --import https://downloads.1password.com/linux/keys/1password.asc
 echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=\"https://downloads.1password.com/linux/keys/1password.asc\"" > /etc/yum.repos.d/1password.repo
 
 # Terra repo
-curl -fsSL https://raw.githubusercontent.com/terrapkg/packages/f$(rpm --eval '%{fedora}')/anda/terra/release/terra.repo | tee /etc/yum.repos.d/terra.repo
-curl -fsSL https://raw.githubusercontent.com/terrapkg/packages/f$(rpm --eval '%{fedora}')/anda/terra/release/terra-extras.repo | tee /etc/yum.repos.d/terra-extras.repo
-dnf5 install -y terra-release terra-gpg-keys
-# Edit /etc/yum/repos.d/{terra,terra-extras}.repo and set enabled=1 for both
-# sed -i 's/enabled=0/enabled=1/g' /etc/yum.repos.d/terra.repo
-# sed -i 's/enabled=0/enabled=1/g' /etc/yum.repos.d/terra-extras.repo
+curl -fsSL https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo > /etc/yum.repos.d/terra.repo
+dnf5 -y install terra-release
 
 dnf5 -y copr enable alternateved/keyd
 dnf5 -y copr enable yuezk/globalprotect-openconnect
