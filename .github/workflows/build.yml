@@ -105,6 +105,12 @@ jobs:
           labels: ${{ steps.metadata.outputs.labels }}
           oci: false
 
+      # The build script puts it in local storage, while rechunker expects it in root.
+      - name: Copy image to root Podman storage
+        run: |
+          podman save localhost/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }} | sudo podman load
+          podman rmi -a -f
+
       # Rechunk is a script that we use on Universal Blue to make sure there isnt a single huge layer when your image gets published.
       # This does not make your image faster to download, just provides better resumability and fixes a few errors.
       # Documentation for Rechunk is provided on their github repository at https://github.com/hhd-dev/rechunk
@@ -123,6 +129,7 @@ jobs:
       # This is necessary so that the podman socket can find the rechunked image on its storage
       - name: Load in podman and tag
         run: |
+          sudo chmod -R a+rX ${{ steps.rechunk.outputs.output }}
           IMAGE=$(podman pull ${{ steps.rechunk.outputs.ref }})
           sudo rm -rf ${{ steps.rechunk.outputs.output }}
           for tag in ${{ steps.metadata.outputs.tags }}; do
