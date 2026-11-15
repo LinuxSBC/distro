@@ -2,6 +2,9 @@
 
 set -ouex pipefail
 
+# Copy the contents of system_files/ of the git repo to /
+cp -avf "/ctx/system_files"/. /
+
 ### Install packages
 
 rpm --import https://downloads.1password.com/linux/keys/1password.asc
@@ -34,6 +37,6 @@ dnf5 install -y --allowerasing \
     # 1password 1password-cli \
 
 
-### Enable sockets
+### Enable systemd units
 
 systemctl enable podman.socket
