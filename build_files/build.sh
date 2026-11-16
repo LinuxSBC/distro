@@ -36,8 +36,6 @@ dnf5 install -y --allowerasing \
     # I'd like to install 1Password, but it installs to /opt, which isn't included in the image. It needs to be layered.
     # 1password 1password-cli \
 
-# Temporary workaround for broken fx-autoconfig package
-cp -r /usr/lib/firefox/* /usr/lib64/firefox/
 
 ### Enable systemd units
 
